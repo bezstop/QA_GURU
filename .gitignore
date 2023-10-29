@@ -141,9 +141,9 @@ hs_err_pid*
 replay_pid*
 
 ### Gradle ###
-**/gradle/
-**/build/
-!src/**/build/
+#**/gradle/
+#**/build/
+#!src/**/build/
 .gradle
 
 # Ignore Gradle GUI config
