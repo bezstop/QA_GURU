@@ -11,7 +11,7 @@ public class SearchTests {
 
     @BeforeEach
     public void init() {
-        Configuration.pageLoadStrategy = "eager";
+        Configuration.pageLoadStrategy = "eager1";
     }
 
     public static void openUrl(String url) {
