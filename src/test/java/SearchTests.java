@@ -11,7 +11,7 @@ public class SearchTests {
 
     @BeforeEach
     public void init() {
-        Configuration.pageLoadStrategy = "eager3";
+        Configuration.pageLoadStrategy = "eager";
     }
 
     public static void openUrl(String url) {
@@ -24,5 +24,6 @@ public class SearchTests {
         openUrl("https://www.google.com/");
         $("[name=q]").setValue("selenide").pressEnter();
         $("[id=search]").shouldHave(text("https://ru.selenide.org"));
+        System.out.println("GOOD");
     }
 }
