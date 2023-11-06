@@ -21,7 +21,7 @@ public class SearchTests {
 
     @Test
     void successfulSearchTest() {
-        openUrl("https://www.google.com/");
+        openUrl("https://www.google.com!/");
         $("[name=q]").setValue("selenide").pressEnter();
         $("[id=search]").shouldHave(text("https://ru.selenide.org"));
         System.out.println("GOOD");
