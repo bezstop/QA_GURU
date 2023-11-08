@@ -1,13 +1,14 @@
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+package automationPracticeForm;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+
 import static com.codeborne.selenide.Selenide.open;
 
-public class SearchTests {
+public class PrepareForTests {
 
     @BeforeEach
     public void init() {
@@ -19,11 +20,9 @@ public class SearchTests {
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }
 
-    @Test
-    void successfulSearchTest() {
-        openUrl("https://www.google.com!/");
-        $("[name=q]").setValue("selenide").pressEnter();
-        $("[id=search]").shouldHave(text("https://ru.selenide.org"));
-        System.out.println("GOOD");
+    @AfterEach
+    public void close() {
+        Selenide.closeWebDriver();
     }
+
 }
