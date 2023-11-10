@@ -1,11 +1,11 @@
-package automationPracticeForm;
+package automationpracticeform;
 
+import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class AutomationPracticeFormTests extends PrepareForTests {
@@ -22,11 +22,11 @@ public class AutomationPracticeFormTests extends PrepareForTests {
 
     @Test
     void checkAutomationPracticeForm() {
-        openUrl("https://demoqa.com/automation-practice-form");
+        openUrl("/automation-practice-form");
         $("#firstName").setValue(NAME);
         $("#lastName").setValue(SURNAME);
         $("#userEmail").setValue(EMAIL);
-        $("label[for='gender-radio-3']").click();
+        $(byText("Other")).click();
         $("#userNumber").setValue(PHONE_NUMBER);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(DECEMBER);
@@ -34,8 +34,7 @@ public class AutomationPracticeFormTests extends PrepareForTests {
         $(".react-datepicker__day--003:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue(ARTS).pressEnter();
         $("label[for='hobbies-checkbox-2']").click();
-        File file = new File("src/test/resources/12345.png");
-        $("#uploadPicture").uploadFile(file);
+        $("#uploadPicture").uploadFromClasspath("12345.png");
         $("#currentAddress").setValue(TEXT);
         $("#state").click();
         $("#react-select-3-option-2").click();
